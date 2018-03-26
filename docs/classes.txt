@@ -1,0 +1,36 @@
+Article(models.Model):
+    title = models.CharField(max_length=255)
+    slug = AutoSlugField(populate_from='title')
+    content = models.TextField(max_length=4000)
+    status = models.CharField(max_length=1, choices=STATUS, default=DRAFT)
+    create_user = models.ForeignKey(User)
+    create_date = models.DateTimeField(auto_now_add=True)
+    update_date = models.DateTimeField(auto_now=True)
+    categorias
+    palavraschaves
+
+
+ArticleComment(models.Model):
+    article = models.ForeignKey(Article)
+    comment = models.CharField(max_length=500)
+    date = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(User)
+
+
+User:
+    name
+    email
+    password
+    description
+    facebook
+    instagram
+    linkedin
+    twitter
+    country
+
+
+Categorias
+    nome
+
+Palavras Chaves
+    nome
